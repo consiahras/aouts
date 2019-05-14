@@ -1,0 +1,18 @@
+#You are given a string  and width . 
+#Your task is to wrap the string into a paragraph of width .
+#textwrap.fill(text, width=70, **kwargs)
+#Wraps the single paragraph in text, and returns a single string containing the wrapped paragraph. fill() is shorthand for
+#"\n".join(wrap(text, ...))
+
+import textwrap
+
+def wrap(string, max_width):
+    return(textwrap.fill(string,max_width))
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+    result = wrap(string, max_width)
+    print(result)
+    
+    
+    
+    
