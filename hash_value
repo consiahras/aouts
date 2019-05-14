@@ -1,0 +1,13 @@
+#hash() fucntion - gets a value(example string) --> and creates an integer that uses after as index for entry in a touple
+n=int(input())
+input_line=input()
+input_list=input_line.split()
+for i in range(n):
+    input_list[i]= int(input_list[i])
+t=tuple(input_list)
+print(t)
+print(hash(t))
+
+#insteat of:  for i in range(n): input_list[i]= int(input_list[i])
+#By using list comprehension input_list = map(int, input_list)
+#by using Lists composition : input_list = [int(x) for x in input_list]
