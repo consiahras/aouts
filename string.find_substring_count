@@ -7,7 +7,8 @@
 def count_substring(string, sub_string):
     #print(string)
     #print(sub_string)
-    count=string.find(sub_string)
+    #count=string.find(sub_string) # this works as well
+    count=(sum([ 1 for i in range(len(string)-len(sub_string)+1) if string[i:i+len(sub_string)] == sub_string]))
     return(count)
 
 if __name__ == '__main__':
