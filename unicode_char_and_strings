@@ -1,0 +1,25 @@
+#Unicode Characters and Strings
+#Computers understands numbers so for PCs to understand letters we need a mapping. the most used map is ASCII
+#So there this fucintion that give us number when we put an ASCII character.
+print(ord('H'))
+print(ord('h'))
+print(ord('\n'))
+#Thats why AAA < bbb , string wise
+#So there was a time that PCs couldnt talk to each other due to different character sets.
+#SOLUTION TO THIS was Unicode 9.0 - Universal code with milion of characters
+#As internet came out we need to have a way to exchange data. So unicode was abstraction of possible characters
+#UTF-16 has max size of 2  bytes. So it can has some issues with it.
+#UTF-32 was 4 bytes --> so this making your disk size 4 times less(a 16GB USB is literally 4GB)
+#UTF-8 has size 1-4 bytes. so it is recommended for encoding data to be exchanged between systems 
+# and it overlaps with ASCII 
+
+#In python 2.7 
+# x = b'abc' --> this is string
+# x = '0|DAS*' --> this is string
+# x =u'0|DAS*' --> This is unicode (and you were defining unicode with letter u )
+
+#In python 3.5.1   (Everything is in unicode inside python3)
+# x = b'abc' --> this is type 'bytes'  -- 
+#so this is raw data without know what it is encoded.So this is what we manage when we get stream from outside
+# x = '0|DAS*' --> this is string
+# x =u'0|DAS*' --> This is string
