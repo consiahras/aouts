@@ -1,0 +1,59 @@
+#Regular Expressions are really old concept 
+#its kind of an "old school" language
+
+#  ^   means the beginning of a line
+#  $   means tge end of the line
+#  .   means any character
+#  \s  matches whitespace
+#  \S matches any non-whitespace character
+#  *   Repeats a character zero or more times
+#  *?  Repeats a character zero or more times (non greedy) - Greedy means when you find 1st time the character not 2nd
+#in cases that you have the character you are looking for many times.
+#  +  Repeats a character zero or more times
+#  +?  Repeats a character zero or more times(non-greedy)
+#  [aeiou]  Matcges a single character in the listed set
+#  [^XYZ]   matches a single character NOT in the listed set
+#  [a-z0-9] tge set if cgaracters cab include a range
+#  (   Indicates where string extraction is to start
+#  )   Indicates where string extraction is to end
+# [0-9]+ means we want to get a number from 0-9 at least 1
+
+
+
+#To be able to use regex you need to import libray using "import re"
+#you can use re.search() to see if a string matches a regular expression , similar to the find()  method for strings
+#You can use re.findall() to extract portions of a string that match your regular expression, similar to find() and slicing
+# var[5:10]
+import re
+fhand=open('/Users/konstantinossiachras/Desktop/Python Scripting/skata.txt')
+for line in fhand:
+    line=line.rstrip()
+    if re.search('^From:' , line):
+        print(line)
+
+
+
+#EXTRACTING DATA
+import re
+x='My 2 favorite numbers are 19 and 42'
+y=re.findall('[0-9]+',x)
+print(y)
+#it returns list of strings(not numbers!!!)
+
+
+
+
+#to extract data we use the () 
+#so for example: stuff=re.findall('^X-DSPAM-Confidence: ([0-9.]+)') , line)
+#will extract only the numbers and not the text befre
+
+import re
+hand=open('/Users/konstantinossiachras/Desktop/Python Scripting/skata.txt')
+numlist=list()
+for line in hand:
+    line=line.rstrip()
+    stuff=re.findall('^X-DSPAM-Confidence: ([0-9.]+)' , line)
+    if len(stuff) !=1 : continue
+    num=float(stuff[0])
+    numlist.append(num)
+print('Maximum:', max(numlist))
