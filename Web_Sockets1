@@ -1,0 +1,7 @@
+#SOCKETS IN PYTHON
+#Python has a build-in support for TCP sockets and it only has 3 lines
+#socket.SOCK_STREAM means we expect a series of strings to coming back
+#SOS this is like dialing the Phone, doesnt means the connection is made
+import socket
+mysock = socket.socket(socket.AF_INET , socket.SOCK_STREAM)
+mysock.connect(('data.pr4e.org', 80))
