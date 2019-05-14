@@ -1,0 +1,23 @@
+#We have seen that lists are mutable (they can be changed), and tuples are immutable (they cannot be changed).
+#Let's try to understand this with an example.
+#You are given an immutable string, and you want to make changes to it.
+#example : >>> string = "abracadabra"
+#>>> print string[5] ==> a
+#to change the a --> k one solution is make this string a list and change the valie
+#Another approach is to slice the string and join it back.
+#>>> string = string[:5] + "k" + string[6:]
+#sample input
+#abracadabra
+# 5 k
+
+def mutate_string(string, position, character):
+    list_string=list(string)
+    list_string[position]=character
+    string=''.join(list_string)
+    return(string)
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)
