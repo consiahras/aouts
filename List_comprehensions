@@ -1,0 +1,18 @@
+#List comprehensions : provide a concise way to create lists. 
+#Its a fast way to create lists by filtering it as well , for example you want to create
+#SYNTAX :  *result* =  [*Transofer value*       *iteration*      *filter we want to apply (if we want*)]
+x=[i for i in range(10)]
+print(x)
+#but lets say we want to create i**2, we can do it with 2 ways : 
+squares=[]
+for y in range(10): 
+    squares.append(y**2)    
+print(squares)
+#or we can use list comprehensions to get same resukt
+squares2=[z**2 for z in range(10)]
+print(squares2)
+#Example of filter , print only even
+skata=[x**2 for x in range(10) if x%2==0]
+print(skata)
+
+#Exersice List comprehensions
