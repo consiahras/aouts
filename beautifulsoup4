@@ -1,0 +1,45 @@
+#Parsing Webpages - Data Scraping ( when a program preteds to be a browser and retrieves data)
+#The best tool to use is Beatiful Soup from www.crummy.com
+
+#to run this you can install it via
+# https://pypi.python.org/pypi/beautifulsoup4
+#or download file from http://www.py4e.com/code3.bs4.zip
+#and extract it in the folder you have your python scripts as subfolder
+
+# import urllib.request,urllib.parse, urllib.error from bs4 import BeatifulSoup
+
+# You are here https://www.coursera.org/learn/python-network-data/lecture/1oHBS/12-5-parsing-web-pages
+
+#SOS READ THIS : https://docs.python.org/3/library/index.html
+# https://unix.stackexchange.com/questions/238180/execute-shell-commands-in-python
+
+#for python3 : type 
+#konstaninossmbp:beautifulsoup4-4.7.1 konstantinossiachras$ which pip3
+#/Library/Frameworks/Python.framework/Versions/3.7/bin/pip3
+#konstaninossmbp:beautifulsoup4-4.7.1 konstantinossiachras$ pip3 install bs4
+#Requirement already satisfied: beautifulsoup4 in /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages (from bs4) (4.7.1)
+#Requirement already satisfied: soupsieve>=1.2 in /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages (from beautifulsoup4->bs4) (1.9.1)
+#Installing collected packages: bs4
+
+
+
+
+
+import urllib.request,urllib.parse, urllib.error
+from bs4  import BeautifulSoup
+import ssl
+
+#Ignore SSL certificate errors
+ctx=ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+
+
+url=input('Enter http site - ')
+html = urllib.request.urlopen(url, context=ctx).read()
+soup = BeautifulSoup(html, 'html.parser')
+
+
+tags = soup('a')
+for tag in tags:
+	print(tag.get('href', None))
