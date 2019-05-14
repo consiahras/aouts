@@ -1,0 +1,10 @@
+#Since HTTP is so common, we have a library that does all the socket work for us and make web pages look like a file
+#So all this procedure , open socket , receive data etc decode and encode is already fixed in this library
+#So to read a line from a webpage is only 4 lines now
+
+import urllib.request,urllib.parse, urllib.error
+fhand=urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
+for line in fhand:
+    print(line.decode().strip())
+    
+#so now you can do what we did in Data structures with files, on all the internet.
