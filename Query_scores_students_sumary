@@ -1,0 +1,21 @@
+#Get input a number of students N. Then get input Name  as string. And 3 grades as float numbers. Then ask a name. Input anmae
+# of a student. And provide result the output of his summary of lessons.
+
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        line = input().split()
+        name, scores = line[0], line[1:]
+        scores = map(float, scores)
+        student_marks[name] = scores
+    query_name = input()
+    query_scores = student_marks[query_name]
+    result=0
+    lenght=0
+    for i in query_scores:
+        #print(i)
+        result=result+i
+        lenght=lenght+1
+    print("{0:.2f}" .format(result/lenght))
+   # print("{0:.2f}".format(sum(query_scores)/(len(list(query_scores)))))
