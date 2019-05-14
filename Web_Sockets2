@@ -1,0 +1,53 @@
+#HTTP - HyperText Transfer Protocol
+#Since TCP ( and Python) gives us a reliable socket, what do we want to do with that socket?
+#HTTP is the domimant application Layer Protocol on the Internet
+#Invented for the Web to retrieve HTML - Images Documents etc
+#Extended to be data in addition to documents, RSS, Web Servcices .
+#Basic Concent: Make a connection - Request a document - Retrieve Document - Close the Connection
+#SO HTTP is a set of rules to allow browsers to retrive documents from servers over the Internet
+
+#So many years ago you had to know this, but after years it became url. Uniform resource locator.
+#So each time you click a tag with an href= , browser makes a connection to the web server and issues a 
+# "GET " request of the specific URL
+#So inside a webpage if you have like <a href='skata.htm' , means its an ancor and you can click to make a GET
+
+#So once we create a socket with a WebServer - We can use it as communication tunnel, many times for different 
+#cases, send recv  GET 
+
+
+
+#Example of creating a socket , this simulates as i put into my browser http://data.pr4e.org/romeo.txt
+#we can do it as well : telnet data.pr4e.org 80
+#GET http://data.pr4e.org/romeo.txt HTTP/1.0     and press enter twice
+
+import socket
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+mysock.connect(('data.pr4e.org', 80))
+cmd = 'GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n'.encode()  #.encode() turns unicode format to the encoding of UTF8
+mysock.send(cmd)
+
+while True:
+    data=mysock.recv(512)
+    if (len(data) < 1):
+        break
+    print(data.decode())  #.decode() turns the encoding from UTF8 to the internal format called unicode that rans inside
+mysock.close()
+
+
+
+
+#Developer Console in your Browse , help you debug how a Webpage works.
+#So we can find various things . Browser --> View --> Developer Console!
+#headers show us the GET requests etc
+#Reply give us the html code
+
+#How to put parameters in a webrowser
+#https://www.wa4e.com/code/arrays/guess.php
+
+#Then type: https://www.wa4e.com/code/arrays/guess.php?guess=12
+# ? is like Query String Parameter (and this is a way to talk to Web applications directly), so after ? we provide parameters
+#if you check now the header of your request at the botton , you will see that you send as well guess: 12
+#try now : https://www.wa4e.com/code/arrays/guess.php?guess=42&x=14&abc=22
+#and check again header of your request : it provides guess:42 x:14 abc:22
+
+#i am here: https://www.coursera.org/learn/python-network-data/home/week/4
