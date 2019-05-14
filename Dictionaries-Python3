@@ -1,0 +1,167 @@
+#DICNTIONARIES ARE FASTER and its random located inside
+# List is a collection of values in order but dictionaries like random staff')
+#Dictionaries have labels to define what is inside , So they have KEY / VALUES')
+#Other languages refer to dictionaries as : associative array , hashmap , property bag
+
+purse=dict()
+purse['money']=1
+purse['candy']=2
+purse['tissue']=3
+purse['candy']=purse['candy'] +2
+print(purse)
+
+skatadict={'skata1':1 , 'skata2':2, 'skata3':3}
+print(skatadict)
+
+emptydict={}
+print(emptydict)
+
+
+
+#DICTIONARIES are like LISTS except they use keys instead of numbers to look up values
+
+
+lst=list()
+lst.append(21)     #this value will be changed
+lst.append(183) 
+lst[0]=182
+print(lst)
+
+#KEY -- VALUE
+# 0     182
+# 1     183
+
+#DICTIONARIES ARE BETTER as you can create a new entry whenever you want and add a new type of value.
+#BUT THIS IS FASTER
+dct=dict()
+dct['age']=21       #this value will be changed
+dct['course']=183
+dct['age']=182
+print(dct)
+
+# KEY   -- VALUE
+# age   --  182
+# course -- 183
+
+
+#If you want to see how many times something is added to the dictionary
+# print 'csev' in counts()   --> it will check if the key exist in the dictionary 
+
+counts = dict()
+names=['alexandra','kwstas','alex','takis','skata','alexandra','kwstas','kwstas']
+for name in names:
+       if name in counts:
+           counts[name]= counts[name] +1
+       else:
+           counts[name]=1
+print(counts)
+
+
+#This scenario to check how many times something exists, is so commmon 
+# that there is a method called get() that does this for us
+
+counts = dict()
+names=['alexandra','kwstas','alex','takis','skata','alexandra','kwstas','kwstas']
+for name in names:
+     counts[name]=counts.get(name,0) +1     #So 4 lines from above are now 1
+print(counts)
+
+
+
+
+
+
+#PROGRAMM TO READ A INPUT TEXT and find the most common word
+counts=dict()
+print('Enter a line of text:')
+line=input('')
+words=line.split()
+print('Words:', words)    #this is a list of words produced by split()
+print('Counting...')
+for word in words:
+    counts[word]=counts.get(word,0) +1
+print("Counts", counts)
+
+
+
+
+
+#We can also loop Dictionaries with for loops
+counts={'alexandra':1 , 'kwstas':2, 'giannis':3, 'petros':1}
+for key in counts:
+    print(key,counts[key])
+
+
+
+
+
+
+#Convert Dictionaries ---> Lists
+counts={'alexandra':1 , 'kwstas':2, 'giannis':3, 'petros':1}
+print(list(counts))    #it makes the keys --> list
+print(counts.keys())
+print(list(counts.values()))  #it makes the values --> list
+skata=list(counts.values())
+print(type(skata))
+# items() method returns a list of the dictionary. Both key-values inside a list
+print(counts.items())
+yolo=counts.items()   #this is a list of Dictionaries - and its called Tuples
+print(type(yolo))
+
+
+
+
+
+#Loop with 2 iteration Variables. In python we can loop through the key-value pairs in dictionary using 2 iteration
+#variables. Each iteration, the first variable is the key and the second variable is the corresponding value for key
+
+counts={'alexandra':1 , 'kwstas':2, 'giannis':3, 'petros':1}
+for aaa,bbb in counts.items():
+    print(aaa,bbb)
+#so generally we tell them to create a tuple and use those values for the Loop 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
