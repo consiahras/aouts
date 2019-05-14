@@ -1,0 +1,16 @@
+#here we take 2 Entries and we put it on marksheet . 
+# scorelist.append(score)  or += scorelist+=[score] are the same. Both doing append
+marksheet=[]
+scorelist=[]
+if __name__ == '__main__':
+        for _ in range(int(input())):   #for _ means ignore the index. so do your think but dont care
+                name = input()
+                score = float(input())
+                marksheet+=[[name,score]]
+                scorelist.append(score)
+                #scorelist+=[score]
+        b=sorted(list(set(scorelist)))[1] 
+
+        for a,c in sorted(marksheet):
+             if c==b:
+                    print(a)
