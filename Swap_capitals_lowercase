@@ -1,0 +1,22 @@
+#Enter a string and swap capital letters with lowercase letters and opposite.
+def swap_case(s):
+    input_list=list(s)
+    #print(input_list)
+    asciilist=list(map(str, map(ord, input_list)))
+    #print(asciilist)
+    for i in range(len(asciilist)):
+        if int(asciilist[i]) >= 65 and int(asciilist[i]) <= 90 :
+            asciilist[i] = int(asciilist[i]) +32
+        elif int(asciilist[i]) >= 97 and int(asciilist[i]) <= 122:
+            asciilist[i] = int(asciilist[i]) -32
+        else :
+            asciilist[i] = int(asciilist[i])
+    #print(asciilist)
+    result=""
+    result=''.join(chr(i) for i in asciilist)
+    #print(result)
+    return(result)
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
