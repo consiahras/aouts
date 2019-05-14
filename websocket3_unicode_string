@@ -1,0 +1,21 @@
+#SO After checking the above . When we talk to an external resource like a network socket, 
+#we send bytes, so we need to encode Python 3 strings into a given character encoding
+#when we read data , we must decode it based on the character set so its properly presented in python3
+import socket
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+mysock.connect(('data.pr4e.org', 80))
+cmd = 'GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n'.encode()  #.encode() turns unicode format to bytes (most likely UTF-8) 
+mysock.send(cmd)
+
+
+while True:
+    data=mysock.recv(512)   #so this is bytes that we receive
+    if (len(data))<1:
+        break
+    mystring=data.decode()    #so this will change data from UTF-8 --> Unicode as String!
+    print(mystring)
+    
+#if you check methods encode method is a method works on string
+# str.encode
+#and decode is a method works with bytes
+# bytes.decode
