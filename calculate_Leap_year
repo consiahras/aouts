@@ -1,0 +1,19 @@
+#Calculate Leap year ( year needs to be divided by 4, but if is divided by 100 it's not, except it can be divided by 400)
+year=2000
+if (year % 4==0):
+    if (year % 400 ==0):
+        leap=True
+    elif (year % 100 ==0):
+        leap=False
+    else:
+        leap=True
+print(leap)
+
+
+#take a number N and  type a serial like this 123....N (without using any string methods)
+n=int(input())
+for i in range(1, n+1):
+    print(i, end='')
+    
+    
+    
