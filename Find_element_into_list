@@ -1,0 +1,13 @@
+#Privide a list , then provide an element . And find it inside 
+#map(function_to_apply, list_of_inputs)
+#so in this case int() function is applied to whatever comes from input().split()
+n = int(input())
+arr = list(map(int, input().split()))
+#print(arr) <-- so here we have a list of integers
+largest = max(arr)
+
+for i in range(n):
+    if largest == max(arr):
+        arr.remove(max(arr))
+
+print(max(arr))
