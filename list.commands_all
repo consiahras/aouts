@@ -1,0 +1,38 @@
+#List: Enter a number , you will take Number of commands , and you need to execute them in your list
+#SOS -- command eval() , runs something inside your python code
+list = []
+Number_of_imports=int(input())
+for _ in range(Number_of_imports):
+    string=input().split()
+    cmd=string[0]
+    args=string[1:]
+    #print(cmd)
+    #print(args)
+    if cmd!="print":
+        cmd = cmd + "("+ ",".join(args) +")"
+        eval("list."+cmd)
+    else:
+        print(list)
+#       
+#
+#
+#
+#312
+#insert 0 5
+#insert 1 10
+#insert 0 6
+#print
+#[6, 5, 10]
+#remove 6
+#append 9
+#append 1
+#sort
+#print
+#[1, 5, 9, 10]
+#pop
+#reverse
+#print
+#[9, 5, 1
+
+
+
