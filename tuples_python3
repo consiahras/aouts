@@ -1,0 +1,124 @@
+#touples are like lists , they have elements which are indexed starting at 0
+#the only difference is that we store them with parentheses and not brackets
+#But the difference is that touples are immutable(unable to change)! As long you create them you cannot modify
+#them, just like strings .
+
+#Examples - List (those are mutable)
+x=[1,2,3]
+x[2]=8
+print(x)
+
+#String cannot change(immutable) , this will throw TypeError: 'str' object does not support item assignment
+y='ABC'
+#y[2]='D'
+print(y)
+
+#Touples cannot be changed as well , this will throw SyntaxError: can't assign to function call
+z=(1,2,3)
+#z(2)=8
+print(z)
+
+
+#you cannot sort , append and reverse touples , but you can do with list 
+l=list()
+t=tuple()
+print('this to do with lists')
+print(dir(l))
+print('this to do with touples')
+print(dir(t))
+#so  if we can do less things with touples, why use them...
+#answer is that as long python dont have to build tuple structures to be modified. It uses less memory
+#and its more fast. SO IN OUR PROGRAM WHEN WE ARE MAKING TEMPORARY VARIABLES we prefer tuples over lists.
+
+
+
+#tuples and assignments
+(x,y)=(4,'Kostas')
+print(y)
+
+a,b=(9,'ole')
+print(b)
+
+
+
+#tuples and dictionaries
+d=dict()
+d['kostas'] = 2
+d['alexandra'] = 4
+for (k,v) in d.items():
+    print(k,v)
+
+tups=d.items();
+print(tups)
+#so if we put that in a for loop, works as a list
+
+
+
+#tuples are comparable , it starts comparing from left to right and it compares 1st value.if they are equal it goes on
+print((1,2,3) < (2,3,4))
+('Jones','Sally')<('Jones','Fred')
+
+
+
+
+#you can use the trick to get a  touples with items() from a dictionary so we can sort it.
+d={'a':3, 'c':2, 'b':1}
+# dir(d)     #dictionaries dont contain .sort
+t=d.items()
+sortedt=sorted(t)
+print(sortedt)
+#or
+tt=sorted(d.items())
+print(tt)
+
+#and we can use it in a loot as before with a for
+for k,v in sorted(d.items()):
+    print(k,v)
+
+
+
+#sort by values (so lets say we want to see top 5 words that used.)
+d={'a':5, 'c':2, 'b':8}
+tmp=list()
+#we go for k,v but we make tuple with v,k
+for k,v in d.items():
+    tmp.append((v,k))
+print(tmp)
+#so now the result is from a:5 --> 5:a , but its not sorted
+
+#so now we get those temporary data we created and we sort them.so even list has
+#tuples inside we can sort them because its s list. 
+tmp.sort(reverse=True)
+print(tmp)
+
+#Program the 5 most common words
+fhand=open('/Users/konstantinossiachras/Desktop/Python Scripting/skata.txt')
+counts=dict()
+for line in fhand:
+    words=line.split()
+    for word in words:
+        counts[word]=counts.get(word, 0) +1
+lst=list()
+for key,val in counts.items():
+    lst.append((val, key))
+lst.sort(reverse=True)
+
+for val,key in lst[:5]:
+    print(key,val)
+    
+    
+    
+ #sort by values (so lets say we want to see top 5 words that used.) - Short version
+#sort normal
+d={'a':5, 'c':2, 'b':8}
+print(sorted([(v,k) for k,v in d.items()]))
+#list comprehension : create a dynamic list, in this case we make a list of reversed tuples and then sort it
+#Construct dynamically a list of touples v,k and loop it for k,v in c.items (so this is creating this reverse list)
+#so we take this [(v,k).....] reverse list and we pass it as input to sorted function.
+
+
+
+
+
+
+
