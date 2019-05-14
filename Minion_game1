@@ -1,0 +1,34 @@
+s=input()
+input_list=list(s)
+vowels=["A","E","I","O","U"]
+Stuartpoints=0
+Kevinpoints=0
+print(input_list)
+print(len(input_list))
+for i in range(len(input_list)):
+    print("the i is",i)
+    if input_list[i] in vowels:
+        points=0
+        current_word=""
+        current_word=current_word.join(input_list[i:])
+        print("Current word that is checked is:",current_word)
+        points=s.count(current_word)
+        print("points:",points)
+        #current_word=input_list[i:].join()
+        #print(current_word)
+        Stuartpoints = Stuartpoints + points
+    else:
+        points=0
+        current_word=""
+        current_word=current_word.join(input_list[i:])
+        print(current_word)
+        points=s.count(current_word)
+        #current_word=input_list[i:].join()
+        #print(current_word)
+        Kevinpoints = Kevinpoints + points
+if Stuartpoints > Kevinpoints:
+    print("Stuart",Stuartpoints)
+elif Kevinpoints > Stuartpoints:
+    print("Kevin",Kevinpoints)
+else:
+    print("Even"
