@@ -1,0 +1,12 @@
+#list split and change the delimiter from "" to "-" 
+def split_and_join(line):
+    words=line.split()
+    #print(words)
+    new_string="-".join(words)
+    #print(new_string)
+    return(new_string)
+
+if __name__ == '__main__':
+    line = input()
+    result = split_and_join(line)
+    print(result)
