@@ -1,0 +1,6 @@
+s=input()
+input_list=list(s)
+print(input_list)
+current_word=""
+current_word=current_word.join(input_list)
+print(current_word)
