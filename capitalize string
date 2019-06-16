@@ -1,0 +1,6 @@
+#capitalize  a string
+s=input()
+list_s=s.split(' ')    #the ' ' is used so we if we have 2 spaces, to consider it extra values on list
+cap_s=" ".join(e.capitalize() for e in list_s)
+#str1 = ''.join(str(e) for e in list1
+print(cap_s)
